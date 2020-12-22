@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   def new
-    @review = Review.new(review_params)
   end
   
   def index
@@ -10,6 +9,13 @@ class ReviewsController < ApplicationController
   def specifications
     @specifications = Review.find(params[:id]).specifications
     render :json => @specifications.to_json()
+  end
+
+  def create
+    @review = Review.new(
+      params.require(:review).permit(:title))
+    @review.save
+    redirect_to @review
   end
 
   def show
