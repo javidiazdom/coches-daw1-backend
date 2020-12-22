@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   end
   
   def index
-    render :json => Review.all.to_json(:include => :sections)
+    @reviews = Review.all
   end
 
   def specifications
@@ -15,12 +15,22 @@ class ReviewsController < ApplicationController
     @review = Review.new(
       params.require(:review).permit(:title))
     @review.save
-    redirect_to @review
+    redirect_to reviews_path
   end
 
   def show
     @review = Review.find(params[:id])
-    render :json => @review.to_json(:include => :sections)
+     render :json => @review.to_json(:include => :sections)
+  end
+
+  def recent
+    render :json => Review.last(3).to_json()
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to reviews_path
   end
 end
  
