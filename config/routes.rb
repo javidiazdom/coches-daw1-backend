@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     get '/homepage', :to => 'reviews#recent'
   
     resources :reviews
+
+    resources :news
   end
