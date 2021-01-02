@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-
+    before_action :set_new, only: [:show, :edit, :update, :destroy]
     def new
         @new = New.new
     end
@@ -10,23 +10,25 @@ class NewsController < ApplicationController
 
     def create
         #render plain: params[:new].inspect
-        @new = New.new new_params
+        @new = New.new(new_params)
         @new.save
-        redirect_to @new
+        redirect_to news_path
     end
 
     def show
-        @new = New.find params[:id]
     end
 
     def edit
-        @new = New.find params[:id]
     end
 
     def update
-        @new = New.find params[:id]
         @new.update new_params
         redirect_to @new
+    end
+
+    def destroy
+        @new.destroy
+        redirect_to news_path
     end
 
     private
@@ -35,5 +37,8 @@ class NewsController < ApplicationController
         params.require(:new).permit(:title, :description, :picture_url, :category)
     end
 
+    def set_new
+        @new = New.find params[:id]
+    end
 
 end
