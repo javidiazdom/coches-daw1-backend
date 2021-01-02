@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-     render :json => @review.to_json(:include => :sections)
+    render :json => @review.to_json(:include => :sections)
   end
 
   def recent
