@@ -11,7 +11,7 @@ specifications = Specification.create([{prestacion: 'Ejemplo2', valor: 'Ejemplo1
 
 review = Review.create({title: 'Review 1', sections: sections, specifications: specifications});
 
-article = Article.create({title: 'New 1', description: 'ta pi cua', picture_url:'Imagen/de/prueba.jpg', category: 'Electrico', time: '10 minutos'});
+article = Article.create({title: 'New 1', description: 'ta pi cua', picture:'', category: 'Electrico', time: '10 minutos'});
 
 
  

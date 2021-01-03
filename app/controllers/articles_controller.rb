@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
         #render plain: params[:new].inspect
         @article = Article.new(article_params)
         @article.save
-        redirect_to articles_path
+        redirect_to @article
     end
 
     def show
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:title, :description, :picture_url, :category, :time)
+        params.require(:article).permit(:title, :description, :picture, :category, :time)
     end
 
     def set_article

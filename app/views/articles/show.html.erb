@@ -1,7 +1,7 @@
 <div class='container'>
+    <%= image_tag @article.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
     <%= @article.title %>
     <%= @article.description %>
-    <%= @article.picture_url %>
     <%= @article.category %>
     <%= @article.time %>
 </div>
