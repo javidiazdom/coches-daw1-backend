@@ -1,5 +1,5 @@
 <div class='form-group'>
-    <%= form_for @article do |f| %>
+    <%= form_for @article, :html => {:multipart => true} do |f| %>
 
         <%= f.label :title %> <br>
         <%= f.text_field :title, class: 'form-control' %> <br>
@@ -8,7 +8,7 @@
         <%= f.text_field :description, class: 'form-control' %> <br>
 
         <%= f.label :picture %> <br>
-        <%= f.text_field :picture %> <br>
+        <%= f.file_field :picture %> <br>
 
         <%= f.label :category %> <br>
         <%= f.text_field :category, class: 'form-control' %> <br>

@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'carrierwave'
-gem 'mini_magick'
+#gem 'mini_magick'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
