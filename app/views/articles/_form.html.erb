@@ -1,8 +1,21 @@
+<%- if @article.errors.any? %>
+    <div class='alert alert-danger'>
+        <h4 class='alert-heading'>Oh no!</h4>
+        <p> Ha ocurrido un error </p>
+    </div>
+<% end %>
+
 <div class='form-group'>
     <%= form_for @article, :html => {:multipart => true} do |f| %>
 
         <%= f.label :title %> <br>
-        <%= f.text_field :title, class: 'form-control' %> <br>
+        <%= f.text_field :title, class: 'form-control' %> 
+        <%- if @article.errors[:title].any? %>
+            <span class='badge badge-pill badge-danger'>
+                <%= @article.errors[:title].first %>
+            </span>
+        <br>
+        <% end %>
 
         <%= f.label :description %> <br>
         <%= f.text_field :description, class: 'form-control' %> <br>

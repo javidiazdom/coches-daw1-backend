@@ -11,8 +11,12 @@ class ArticlesController < ApplicationController
     def create
         #render plain: params[:new].inspect
         @article = Article.new(article_params)
-        @article.save
-        redirect_to @article
+
+        if @article.save
+            return redirect_to articles_path
+        end
+
+        render :new
     end
 
     def show
