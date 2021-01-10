@@ -1,5 +1,5 @@
 <div class='container'>
-    <%= image_tag(@article.picture_url, :width => 80, :height => 80) if @article.picture.present? %>
+    <%= image_tag(@article.picture_url, :width => 80, :height => 80) unless article.picture.nil? %>
     <%= @article.title %>
     <%= @article.description %>
     <%= @article.category %>
