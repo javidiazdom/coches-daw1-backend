@@ -22,12 +22,12 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    #@review = Review.find(params[:id])
-    #render :json => @review.to_json(:include => [:sections, :specifications])
+    @review = Review.find(params[:id])
+    render :json => @review.to_json(:include => [:sections, :specifications])
   end
 
   def recent
-    render :json => Review.last(3).to_json()
+    render :json => Review.last(3).to_json(:include => [:sections])
   end
 
   def destroy

@@ -35,7 +35,6 @@ $(document).on('turbolinks:load', function() {
     });
     
     $('form').on('click', '.add_fields_specification_btn', function (event) {
-        console.log("error")
         var regexp, time;
         time = new Date().getTime();
         regexp = new RegExp($(this).data('id'),'g');
