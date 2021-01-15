@@ -31,6 +31,14 @@ class ReviewsController < ApplicationController
     render :json => Review.last(3).to_json(:include => [:sections])
   end
 
+  def combustion
+    render :json => Review.find_by(category: "combustion").to_json()
+  end
+
+  def electricos
+    render :json => Review.find_by(category: "electrico").to_json()
+  end
+
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
@@ -44,6 +52,5 @@ class ReviewsController < ApplicationController
 
     def set_review
       @review = Review.find params[:id]
-    end
   end
 end
