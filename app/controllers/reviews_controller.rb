@@ -28,15 +28,15 @@ class ReviewsController < ApplicationController
   end
 
   def recent
-    render :json => Review.last(3).to_json(:include => [:sections])
+    render :json => Review.last(3).to_json(:include => [:sections], methods: :review_image)
   end
 
   def combustion
-    render :json => Review.find_by(category: "combustion").to_json()
+    render :json => Review.where(category: "combustion").to_json(methods: :review_image)
   end
 
   def electricos
-    render :json => Review.find_by(category: "electrico").to_json()
+    render :json => Review.where(category: "electrico").to_json(methods: :review_image)
   end
 
   def destroy
