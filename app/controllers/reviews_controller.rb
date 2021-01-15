@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  
   def new
     @review = Review.new
     @review.specifications.build
@@ -38,10 +39,11 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:title, sections_attributes: Section.attribute_names.map(&:to_sym).push(:_destroy), specifications_attributes: Specification.attribute_names.map(&:to_sym).push(:_destroy))
+      params.require(:review).permit(:title, :category, sections_attributes: Section.attribute_names.map(&:to_sym).push(:_destroy), specifications_attributes: Specification.attribute_names.map(&:to_sym).push(:_destroy))
     end
 
     def set_review
       @review = Review.find params[:id]
+    end
   end
 end
