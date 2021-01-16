@@ -1,8 +1,22 @@
+<%- if @review.errors.any? %>
+    <div class='alert alert-danger'>
+        <h4 class='alert-heading'>Oh no!</h4>
+        <p> Ha ocurrido un error </p>
+    </div>
+<% end %>
+
 <%= simple_form_for(@review) do |f| %>
     <%= f.error_notification %>
 
     <div class  = "form-inputs">
         <%= f.input :title %>
+        <%- if @review.errors[:title].any? %>
+            <span class='badge badge-pill badge-danger'>
+                <%= @review.errors[:title].first %>
+            </span>
+        <br>
+        <% end %>
+        <br>
     </div>
 
     <table class = "table">
@@ -12,6 +26,9 @@
                 <th>Section title</th>
                 <th>Section body</th>
                 <th>Image</th>
+            </tr>
+            
+        <br>
             </tr>
         </thead>
         <tbody class = "section_fields">
