@@ -22,6 +22,14 @@ class ArticlesController < ApplicationController
     def show
     end
 
+    def actualidad
+        render :json => Article.where(category: "actualidad").to_json()
+      end
+    
+      def futuro
+        render :json => Article.where(category: "futuro").to_json()
+      end
+
     def edit
     end
 
