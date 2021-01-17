@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :cors_headers
+    skip_before_action :verify_authenticity_token
     private
         def cors_headers
             headers['Access-Control-Allow-Origin'] = '*'
